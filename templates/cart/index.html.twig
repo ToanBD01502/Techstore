@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart page{% endblock %}
+
+{% block body %}
+
+<section class="h-100 h-custom" style="background-color: #e7e7e7;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            <div class="col-lg-8">
+                                <div class="p-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-5">
+                                        <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                                    </div>
+                                    <hr class="my-4">
+
+                                    {% for item in cart_manager.items %}
+                                    <div class="row mb-5 d-flex justify-content-between align-items-center">
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <img src="{{ asset('uploads/sanpham/' ~ (item.product.photo)) }}" class="img-fluid rounded-3">
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                            <h6 class="text" style="font-size: 19px;">{{ item.product.name }}</h6>
+                                        </div>
+                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                            <form action="{{ path('app_cart_update') }}" method="POST">
+                                                <input type='hidden' value='{{ item.product.id }}' name='product_id' />
+                                                <input type='number' onchange="this.form.submit()"
+                                                    value='{{ item.quantity }}' min="1" name='qty' class="form-control rounded-3 border border-dark" title="Quantity"/>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1" title="Unit price">
+                                            <h6 class="mb-0 ml-2" style="font-size: 19px;">{{ item.product.price }} $</h6>
+                                        </div>
+                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end" title="Remove this product">
+                                            <a href="{{path('app_cart_remove',{'product_id':item.product.id})}}" class="text-muted"><i class="fas fa-times"></i></a>
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                    {% endfor %}
+
+                                    <div class="pt-5">
+                                        <h6 class="mb-0"><a href="{{ path('homepage')}}" class="text-body"><i
+                                                    class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 rounded-right" style="background-color: #f4f1f1;">
+                                <div class="p-5">
+                                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                    <hr class="my-4">
+
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <h5 class="text-uppercase">Total price</h5>
+                                        <h5>{{cart_manager.amount}} $</h5>
+                                    </div>
+
+                                    <a href="{{path('app_order')}}"><button type="button" class="btn btn-danger btn-block rounded-1"
+                                        data-mdb-ripple-color="light">Check out</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

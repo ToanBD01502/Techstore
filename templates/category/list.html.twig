@@ -1,0 +1,76 @@
+
+{% extends 'adbase.html.twig' %}
+
+{% block title %}List Category{% endblock %}
+
+{% block body %}
+
+<div calss="container-fluid ">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="{{path('app_category')}}" class="btn btn-primary ml-3">ADD New Category</a>
+          <!--<h6 class="m-0 font-wight-bold text-primary" > Admin Profile
+            <a href="{{path('app_contact')}}" class="btn btn-primary">ADD Admin Profile</a>
+          </h6>-->
+    </div>
+    <div class="card-body">
+        <div class="table-reponsive">
+            <table class="table table-bordered" id="database" with="100%" cellspacing="0">
+                <thead>
+                   <tr>
+                    <th>No.</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Photo</th>
+                    
+                    <th>Edit</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    {% for cg in data %}
+                   <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{cg.getId()}}</td>
+                    <td>{{cg.getName()}}</td>
+                    <td><img src="{{asset('uploads/sanpham/' ~ cg.getPhoto())}}" height="150"</td>
+                    
+                    <td>
+                        <a href="{{path('app_edit_category',{'id':cg.getId()})}}" class="btn btn-success">Edit</a>
+
+                        <a href="javascript:deletect('{{path('app_delete_category',{'id':cg.getId()})}}')" class="btn btn-danger">Delete</a>
+                    </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block javascripts %}
+<script>
+    function Logout(url){
+        if(confirm("Do you want to sign out?")){
+            window.location.href = url;
+        }
+    }
+    </script>
+    <script>
+        function deletect(url){
+            if(confirm("Do you delete contact?")){
+                window.location.href = url;
+            }
+        }
+        </script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('vendor/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
+    <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i')}}">
+{% endblock %}

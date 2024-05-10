@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+<section class="vh-100" style="background-color: #f5eeee;">
+  <div class="container py-5 h-90">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-7 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="https://lh5.googleusercontent.com/proxy/aYnkFKtr1sEXx7R_9RC9EvNwhWxJS-OPfcZxjjvo0iB-mwzPlSndUEcNCBr63nvU73R3vvKGCYoxY9_rTGadXWAyCO_U6MzzxvES4I9_k2S5fa-jaWu6y-i3qpbsCHzUGfVYCeSd0T9TDNSTX5PnC-d9vUAiNhgdTykt_inm=w1200-h630-p-k-no-nu"
+                alt="Avatar" class="img-fluid my-5" style="width: 120px;" />
+              <h5>Hello: {{ user.username }}!</h5>
+              {# <h6>{{ user.roles|join(', ') }} </h6> #}
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h5>Your information</h5>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>First name</h6>
+                    <p class="text-muted">{{ user.firstname }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Last name</h6>
+                    <p class="text-muted">{{ user.lastname }}</p>
+                  </div>
+                </div>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Your address</h6>
+                    <p class="text-muted">{{ user.address }}</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Your phone number</h6>
+                    <p class="text-muted">{{ user.phonenumber }}</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start ml-4">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg me-3"></i></a>
+                </div>
+                <div class="container-fluid mt-3">
+                  <span>
+                    <a href="{{ path('edit_profile') }}" class="btn btn-outline-danger btn-light rounded-2">Edit Profile</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% form_theme category_form 'bootstrap_5_layout.html.twig' %}
+
+{% extends 'adbase.html.twig' %}
+
+{% block title %}Manage Category{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        {{form_start(category_form)}}
+        {{form_widget(category_form)}}
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        {{form_end(category_form)}}
+    </div>
+{% endblock %}

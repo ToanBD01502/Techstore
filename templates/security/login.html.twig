@@ -1,0 +1,63 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 d-flex justify-content-center">
+    <form method="post" class="col-6">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1 class="mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputUsername">Username</label>
+        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control rounded-2 mb-3" autocomplete="username" required autofocus>
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control rounded-2" autocomplete="current-password" required>
+            <br>
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}">
+
+{#         
+            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+            See https://symfony.com/doc/current/security/remember_me.html #}
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div>
+       
+
+        <button class="btn btn-danger rounded-2 btn-block mb-4" type="submit">
+            Sign in
+        </button>
+        <div class="text-center">
+            <p>Not a member? <a href="{{ path('app_register') }}">Register</a></p>
+            <p>or sign up with:</p>
+            <button type="button" class="btn btn-danger btn-floating mx-1 rounded-5">
+              <i class="fab fa-facebook-f text-light"></i>
+            </button>
+        
+            <button type="button" class="btn btn-danger btn-floating mx-1 rounded-5">
+              <i class="fab fa-google text-light"></i>
+            </button>
+        
+            <button type="button" class="btn btn-danger btn-floating mx-1 rounded-5">
+              <i class="fab fa-twitter text-light"></i>
+            </button>
+        
+            <button type="button" class="btn btn-danger btn-floating mx-1 rounded-5">
+              <i class="fab fa-github text-light"></i>
+            </button>
+          </div>
+    </form>
+    </div>
+{% endblock %}

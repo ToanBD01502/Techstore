@@ -1,0 +1,109 @@
+/*
+Register page
+*/
+
+.form-login{
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+.field input{
+    padding: 0 13px;
+    border: 1px solid whitesmoke;
+}
+.forgotpass{
+    text-align: center;
+    margin-top: 10px;
+}
+.forgotpass span,
+.forgotpass span a{
+    font-size: 15px;
+}
+.form {
+    width: 400px;
+    height: 510px;
+    max-width: 440px;
+    width: 100%;
+    border-radius: 17px;
+    background: hsla(0, 97%, 58%, 1);
+
+    background: linear-gradient(315deg, hsla(0, 97%, 58%, 1) 23%, hsla(0, 95%, 36%, 1) 80%, hsla(0, 90%, 31%, 1) 100%);
+    
+    background: -moz-linear-gradient(315deg, hsla(0, 97%, 58%, 1) 23%, hsla(0, 95%, 36%, 1) 80%, hsla(0, 90%, 31%, 1) 100%);
+    
+    background: -webkit-linear-gradient(315deg, hsla(0, 97%, 58%, 1) 23%, hsla(0, 95%, 36%, 1) 80%, hsla(0, 90%, 31%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FC2D2D", endColorstr="#b10505", GradientType=1 );
+    padding: 22px;
+}
+
+.loginpage {
+    width: 400px;
+    height: 330px;
+    max-width: 440px;
+    width: 100%;
+    border-radius: 17px;
+    background: hsla(0, 97%, 58%, 1);
+
+    background: linear-gradient(315deg, hsla(0, 97%, 58%, 1) 23%, hsla(0, 95%, 36%, 1) 80%, hsla(0, 90%, 31%, 1) 100%);
+    
+    background: -moz-linear-gradient(315deg, hsla(0, 97%, 58%, 1) 23%, hsla(0, 95%, 36%, 1) 80%, hsla(0, 90%, 31%, 1) 100%);
+    
+    background: -webkit-linear-gradient(315deg, hsla(0, 97%, 58%, 1) 23%, hsla(0, 95%, 36%, 1) 80%, hsla(0, 90%, 31%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FC2D2D", endColorstr="#b10505", GradientType=1 );
+    padding: 22px;
+}
+
+.form a{
+    text-decoration: none;
+    color: rgb(251, 251, 251);
+}
+.form  a:hover{
+    text-decoration: underline;
+} 
+
+.son{
+    margin-top: 30px;
+}
+.field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+.field input,
+.field button{
+    height: 82%;
+    width: 95%;
+    border-radius: 20px;
+    padding-left: 9px;
+    border: 1.25px solid rgb(34, 34, 34);
+    font-size: 16px;
+    font-weight: 400;
+}
+span{
+    color: rgb(245, 238, 227);
+}
+header{
+    font-size: 33px;
+    font-weight: bold;
+    color: #ffff;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.button{
+    padding-left: 100px;
+    width: 60%;
+}
+.forgotpass a{
+    color: #ffff;
+}
+
